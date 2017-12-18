@@ -1,0 +1,37 @@
+{
+  "name": "minidi",
+  "version": "1.0.0",
+  "description": "Minimal, convention-based, inversion-of-control/dependency injection for Node.js. Originally written for [Appraise](https://github.com/appraiseqa).",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint spec src *.js",
+    "test": "node spec/support/jasmine-runner.js"
+  },
+  "files": ["index.js", "README.md", "LICENSE", "src"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gojko/minidi.git"
+  },
+  "keywords": [
+    "dependency injection",
+    "appraise",
+    "inversion of control",
+    "testing"
+  ],
+  "author": {
+    "name": "Gojko Adzic",
+    "url": "https://gojko.net"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gojko/minidi/issues"
+  },
+  "homepage": "https://github.com/gojko/minidi#readme",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-config-crockford": "^1.0.0",
+    "eslint-config-defaults": "^9.0.0",
+    "jasmine": "^2.8.0",
+    "jasmine-spec-reporter": "^4.2.1"
+  }
+}
