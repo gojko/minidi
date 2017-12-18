@@ -1,21 +1,23 @@
 # minidi
 
-Minimal, convention-based, inversion-of-control/dependency injection for Node.js. Originally written for [Appraise](https://github.com/appraiseqa). Designed to work 
+Minimal, convention-based, inversion-of-control/dependency injection for Node.js. Originally written for [Appraise](https://github.com/appraiseqa). 
 
+Designed to work with minimal impact on client code and make unit testing easy. 
 
 ## Features
 
-* minimal impact on your code -- requires components only to have a specific constuctor/function parameters 
 * loads components lazily/on demand
 * easy, convention based access to components -- just ask for a property passed into the constructor
+* minimal impact on your code -- requires components only to have a specific constructor/function parameters
+* no external dependencies
+* production-ready, tested
+* supports any Node module as a component, including NPM/Node packages and local files
 
 ## Limitations
 
-* only modules can be components (local files and NPM modules are supported)
+* only uses modules as components (primitives can be passed in as config) 
 * does not support cyclic dependencies
-* components must be classes or functions that can be instantiated with `new`
 * all components are initialised at most once
-
 
 ## Install from NPM
 
