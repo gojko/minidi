@@ -38,7 +38,17 @@ describe('ComponentBuilder', () => {
 	it('can get a configured component as a property', () => {
 		const result = underTest.configured;
 		expect(result.type).toEqual('dynamic mod');
-		expect(result.config).toEqual(config);
+		expect(result.config).toBe(underTest);
+	});
+	it('merges static properties into the map', () => {
+		expect(underTest.a).toEqual('something');
+	});
+	it('merges configuration before initialising the modules', () => {
+		const result = underTest.configured;
+		expect(result.config.a).toEqual('something');
+	});
+	it('provides components in the second arg for backwards compatibility', () => {
+		const result = underTest.configured;
 		expect(result.components).toBe(underTest);
 	});
 	it('blows up for a misconfigured module', () => {
