@@ -1,7 +1,7 @@
 {
   "name": "minidi",
   "version": "1.0.1",
-  "description": "Minimal, convention-based, inversion-of-control/dependency injection for Node.js. Originally written for [Appraise](https://github.com/appraiseqa).",
+  "description": "Minimal, convention-based, inversion-of-control/dependency injection for Node",
   "main": "index.js",
   "scripts": {
     "pretest": "eslint spec src *.js",
