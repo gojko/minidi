@@ -8,7 +8,7 @@ Designed to work with minimal impact on client code and make unit testing easy.
 
 * loads components lazily/on demand
 * easy, convention based access to components -- just ask for a property passed into the constructor
-* minimal impact on your code -- requires components only to have a specific constructor/function parameters
+* minimal impact on your code -- requires components only to have a specific constructor/function parameter
 * no external dependencies
 * production-ready, tested
 * supports any Node module as a component, including NPM/Node packages and local files
@@ -51,10 +51,17 @@ module.exports = class Sender {
 
 ### Initialising the container
 
-Create a new instance of `minidi` and pass in two arguments: component objects and component modules.
+Create a new instance of `minidi` and pass in two arguments: static properties and component modules.
 
-* component objects are literal values (eg config properties, strings, arrays or objects you already initialised)
-* component modules are a key-value map of component names to module names. You can use Node module names or file paths. If you want to use local files instead of package dependencies/Node module names, remember to use `__dirname` to ensure that local paths are resolved based on the current file, for example `path.join(__dirname, 'sender')`.
+```js
+const MiniDi = require('minidi'),
+  container = new MiniDi(staticProperties, componentModules);
+```
+
+* `staticProperties`: `map(String->Any)`, literal values (eg config properties, strings, arrays or objects you already initialised) that will be passed to components unmodified
+* `componentModules`: `map(String->String)` maps component names into module names for dynamic loading. These components will be instantiated on demand from modules when other components ask for them.
+
+Modules are loaded using the normal Node `require` method, so you can use anything that Node can load as a component, including Node module names, NPM packages or file paths. If you want to use local files instead of package dependencies/Node module names, remember to use `__dirname` to ensure that local paths are resolved relative to the current file, and not the `minidi` package. For example, to reference a `sender` module in the same directory as the current file, use `path.join(__dirname, 'sender')`.
 
 Just access any component directly as a property of the container instance, using the name from the `components` map.
 
@@ -74,7 +81,7 @@ const MiniDi = require('minidi'),
   },
   minidi = new MiniDi(config, modules);
 
-minidi.singer.sing(/*... */); // just access a component by property name
+minidi.sender.send(/*... */); // just access a component by property name
 ```
 
 
