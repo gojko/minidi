@@ -23,7 +23,7 @@ Designed to work with minimal impact on client code and make unit testing easy.
 ## Install from NPM
 
 ```bash
-npm inistall minidi
+npm install minidi
 ```
 
 ### Usage
